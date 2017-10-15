@@ -10,14 +10,15 @@
 #'
 #' @note Error occurs if the spcified file does not exist.
 #'
-#' @importFrom read_csv from readr, tbl_df from Dplyr
+#' @import readr
+#' @import dplyr
 #'
-#' @examples
+#' @examples \dontrun{
 #' librray(readr)
 #' library(dplyr)
 #' data <- fars_read("accident_2013.csv.bz2")
+#' }
 #'
-#' @export
 fars_read <- function(filename) {
         if(!file.exists(filename))
                 stop("file '", filename, "' does not exist")
@@ -39,12 +40,10 @@ fars_read <- function(filename) {
 #'
 #' @note Validity of the year is not checked
 #'
-#' @importFrom None
-#'
-#' @examples
+#' @examples \dontrun{
 #' file <- make_filename(2013)
+#' }
 #'
-#' @export
 make_filename <- function(year) {
         year <- as.integer(year)
         sprintf("accident_%d.csv.bz2", year)
@@ -63,12 +62,13 @@ make_filename <- function(year) {
 #' @note Any invalid year in the vector of years results in Null
 #' item of the returned list with warning messages "invalid year: yyyy"
 #'
-#' @importFrom mutate and select from dplyr
-#'
+#' @import dplyr
 #' @import tidyr
+#' @import magrittr
 #'
-#' @examples
+#' @examples \dontrun{
 #'  dat_list <- fars_read_years(c(2013, 2014, 2015))
+#'  }
 #'
 #' @export
 fars_read_years <- function(years) {
@@ -100,10 +100,14 @@ fars_read_years <- function(years) {
 #' @note Any invalid year in the vector of years is ignored for
 #' summary, with warning messages "invalid year: yyyy"
 #'
-#' @import readr, dplyr, tidyr
+#' @import readr
+#' @import dplyr
+#' @import tidyr
+#' @import magrittr
 #'
-#' @examples
+#' @examples \dontrun{
 #' head(fars_summarize_years(c(2013,2014,2015)))
+#' }
 #'
 #' @export
 fars_summarize_years <- function(years) {
@@ -128,10 +132,13 @@ fars_summarize_years <- function(years) {
 #' @note  An error occurs if the state number is invalid.
 #' Nothing is plotted if no fatality cases exist.
 #'
-#' @importFrom filter from dplyr, map from maps, points from graphics
+#' @import dplyr
+#' @import maps
+#' @import graphics
 #'
-#' @examples
+#' @examples \dontrun{
 #' fars_map_state(1, 2013)
+#' }
 #'
 #' @export
 fars_map_state <- function(state.num, year) {
