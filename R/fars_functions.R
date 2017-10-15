@@ -66,7 +66,6 @@ make_filename <- function(year) {
 #'
 #' @import dplyr
 #' @import tidyr
-#' @import magrittr
 #'
 #' @examples \dontrun{
 #'  dat_list <- fars_read_years(c(2013, 2014, 2015))
@@ -105,7 +104,6 @@ fars_read_years <- function(years) {
 #' @import readr
 #' @import dplyr
 #' @import tidyr
-#' @import magrittr
 #'
 #' @examples \dontrun{
 #' head(fars_summarize_years(c(2013,2014,2015)))
