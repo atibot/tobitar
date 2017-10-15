@@ -19,6 +19,7 @@
 #' data <- fars_read("accident_2013.csv.bz2")
 #' }
 #'
+#' @export
 fars_read <- function(filename) {
         if(!file.exists(filename))
                 stop("file '", filename, "' does not exist")
@@ -44,6 +45,7 @@ fars_read <- function(filename) {
 #' file <- make_filename(2013)
 #' }
 #'
+#' @export
 make_filename <- function(year) {
         year <- as.integer(year)
         sprintf("accident_%d.csv.bz2", year)

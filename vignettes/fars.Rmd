@@ -13,9 +13,16 @@ vignette: >
 This package is to analize the data from the US National Highway Traffic Safety Administration's [Fatality Analysis Reporting System] (https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars) , which is a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes.
 
 ## Sample data files
-You can access the path to the three sample raw data files with \code{system.file("extdata", "accident_yyyy.csv.bz2"), package = "tobitar"} where yyyy is 2013, 2014 or 2015. You may want to download the other files from the FARS site above. Please note that this package's functions assume the raw data files are placed in the current directory.
+You can access the path to the three sample raw data files with \code{system.file("extdata", "accident_yyyy.csv.bz2"), package = "tobitar"} ,where yyyy is 2013, 2014 or 2015. You may want to download the other files from the FARS site above. Please note that this package's functions assume the raw data files are placed in the current directory.
 
 ## FUnctions
+
+### \code{fars_read(filename)}
+This function reads a csv file of Fatality Analysis Reporting System data (using the \code{filename} argument) and returns a data.frame of the data.
+
+### \code{make_filename(year)}
+This function creates a file name of the specified year's Fatality Analysis Reporting System data.
+
 ### \code{fars_read_years(years)}
 This function reads csv files of Fatality Analysis Reporting System data for the years (using the \code{years} argument) and returns a list of data.frames corresponding to the years.
 
